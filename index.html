@@ -12,17 +12,12 @@
 </head>
 
 <body>
-
-
-
     <div class="bg"></div>
-
     <div class="star-field">
         <div class="layer" id="layer1"></div>
         <div class="layer" id="layer2"></div>
         <div class="layer" id="layer3"></div>
     </div>
-
     <audio id="engine-audio" src="./assets/audio/engine_idle.mp3" hidden loop></audio>
     <audio id="background-ambience" src="./assets/audio/background_ambience.mp3" hidden autoplay loop></audio>
     <div class="player-container">
@@ -46,8 +41,8 @@
             </svg>
         </div>
         <img src="./assets/images/ship.png" class="player" />
-
     </div>
+
     <div class="sun"></div>
     <div class="mercury"></div>
     <div class="venus"></div>
@@ -69,7 +64,6 @@
                     <th>Time (m)</th>
                     <th>Distance (km)</th>
                 </tr>
-
             </thead>
             <tbody>
                 <tr>
@@ -124,7 +118,6 @@
                     <td></td>
                     <td></td>
                 </tr>
-
             </tbody>
         </table>
         <hr>
@@ -132,6 +125,7 @@
         <input type="number" oninput="speedInput(this)" min="1" max="99" maxlength="2" value="1" placeholder="Speed" />
         <span>x Light Speed</span>
         <hr>
+        <!-- TODO: Update this part later -->
         <button onclick="biggerPlanets()"><strong>Bigger Planets</strong></button>
     </div>
 
@@ -152,7 +146,7 @@
         </div>
     </footer>
 
-    <script src="/assets/javascript/script.js"></script>
+    <script src="./assets/javascript/script.js"></script>
 </body>
 
 </html>
