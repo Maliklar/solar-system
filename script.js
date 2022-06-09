@@ -46,10 +46,16 @@ let neptuneTime = document.getElementById("neptune-time");
 
 let distanceToNext = document.getElementById('distance-tonext');
 
+let engineAudio = document.getElementById("engine-audio");
+
 let earthX = earth.offsetLeft;
 let interval = null;
 let speed = CURRENT_SPEED;
 let curr = 0;
+
+
+let engineFire = document.querySelector(".mo-fire");
+let playerContainer = document.querySelector(".player-container");
 
 // setInterval(() => {
 //     let distance = Math.abs(earthX - curr);
@@ -65,6 +71,13 @@ document.addEventListener('keydown', (event) => {
     clearInterval(interval);
     speed = CURRENT_SPEED;
     if (event.keyCode == 65) {
+        engineAudio.play();
+        engineFire.style.visibility = "visible";
+        playerContainer.style.transform = "rotate(180deg)";
+        playerContainer.style.webkitTransform = "rotate(180deg)";
+        playerContainer.style.mozTransform = "rotate(180deg)";
+        playerContainer.style.animation = "movementLeft 10s alternate-reverse infinite"
+
         interval = setInterval(() => {
             curr = window.pageXOffset;
             window.scroll(curr - speed, 0);
@@ -74,19 +87,31 @@ document.addEventListener('keydown', (event) => {
         }, 1);
     } else if (event.keyCode == 68) {
         interval = setInterval(() => {
+            engineAudio.play();
+
+            engineFire.style.visibility = "visible";
+            playerContainer.style.webkitTransform = "rotate(0deg)";
+            playerContainer.style.mozTransform = "rotate(0deg)";
+            playerContainer.style.transform = "rotate(0deg)";
+            playerContainer.style.animation = "movement 10s alternate-reverse infinite"
+
             curr = window.pageXOffset;
             window.scroll(curr + speed, 0);
             updateMetricsTable();
             backgroundAnimationRight();
         }, 1);
     }
+    console.log(playerContainer.style.transform);
 
 });
 
 document.addEventListener('keyup', () => {
     clearInterval(interval);
+    engineAudio.pause();
+
     speed = 0;
     backgroundAnimationHold();
+    engineFire.style.visibility = "hidden";
 });
 
 

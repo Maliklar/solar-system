@@ -265,13 +265,23 @@ button:hover {
     padding: 20px;
 }
 
+.player-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    transform: rotate(29deg);
+    left: 100px;
+    top: calc(50vh - 50px);
+    transition: all 1s;
+    animation: movement 10s alternate-reverse infinite;
+}
+
 .player {
     height: 50px;
     width: 50px;
-    position: fixed;
-    left: 100px;
-    top: calc(50vh - 50px);
-    animation: movement 10s alternate-reverse infinite;
 }
 
 @keyframes movement {
@@ -282,13 +292,31 @@ button:hover {
         transform: rotate(10deg);
     }
     50% {
-        transform: rotate(-10deg);
+        transform: rotate(-5deg);
     }
     75% {
-        transform: rotate(15deg);
+        transform: rotate(5deg);
     }
     100% {
-        transform: rotate(-20deg);
+        transform: rotate(-10deg);
+    }
+}
+
+@keyframes movementLeft {
+    0% {
+        transform: rotate(180deg);
+    }
+    25% {
+        transform: rotate(170deg);
+    }
+    50% {
+        transform: rotate(175deg);
+    }
+    75% {
+        transform: rotate(185deg);
+    }
+    100% {
+        transform: rotate(190deg);
     }
 }
 
