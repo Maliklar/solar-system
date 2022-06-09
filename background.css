@@ -1,5 +1,5 @@
 .bg {
-    background: url(https://i.ibb.co/87GbbFP/2799006.jpg) no-repeat;
+    background: url(/assets/background.jpg) no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -54,6 +54,42 @@
     }
 }
 
+
+/* Movement Left */
+
+@keyframes sf-fly-by-1-left {
+    from {
+        transform: translateX(-100px);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 0.2;
+    }
+}
+
+@keyframes sf-fly-by-2-left {
+    from {
+        transform: translateX(-1200px);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 0.2;
+    }
+}
+
+@keyframes sf-fly-by-3-left {
+    from {
+        transform: translateX(-1800px);
+        opacity: 0.2;
+    }
+    to {
+        transform: translateX(0px);
+        opacity: 0.2;
+    }
+}
+
 .star-field {
     position: fixed;
     top: 0;
@@ -76,14 +112,17 @@
     border-radius: 2px;
 }
 
-.star-field .layer:nth-child(1) {
+#layer1 {
     animation: sf-fly-by-1 5s linear infinite;
+    transition: all 1s ease-out;
 }
 
-.star-field .layer:nth-child(2) {
+#layer2 {
     animation: sf-fly-by-2 5s linear infinite;
+    transition: all 1s ease-out;
 }
 
-.star-field .layer:nth-child(3) {
+#layer3 {
     animation: sf-fly-by-3 5s linear infinite;
+    transition: all 1s ease-out;
 }

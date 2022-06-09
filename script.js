@@ -10,8 +10,6 @@ let sunDist = document.getElementById("sun-dist");
 let sunTime = document.getElementById("sun-time");
 
 
-let currentSpeedElement = document.getElementById("current-speed");
-
 
 let mercury = document.querySelector(".mercury");
 let mercuryDist = document.getElementById("mercury-dist");
@@ -53,11 +51,11 @@ let interval = null;
 let speed = CURRENT_SPEED;
 let curr = 0;
 
-setInterval(() => {
-    let distance = Math.abs(earthX - curr);
-    let minutes = Math.round((distance / speed) / 100 / 60);
-    distanceToNext.innerHTML = minutes + "m";
-}, 1);
+// setInterval(() => {
+//     let distance = Math.abs(earthX - curr);
+//     let minutes = Math.round((distance / speed) / 100 / 60);
+//     distanceToNext.innerHTML = minutes + "m";
+// }, 1);
 
 
 let progress = document.querySelector(".bottom-map-progress");
@@ -71,6 +69,7 @@ document.addEventListener('keydown', (event) => {
             curr = window.pageXOffset;
             window.scroll(curr - speed, 0);
             updateMetricsTable();
+            backgroundAnimationLeft();
 
         }, 1);
     } else if (event.keyCode == 68) {
@@ -78,8 +77,7 @@ document.addEventListener('keydown', (event) => {
             curr = window.pageXOffset;
             window.scroll(curr + speed, 0);
             updateMetricsTable();
-
-
+            backgroundAnimationRight();
         }, 1);
     }
 
@@ -88,8 +86,7 @@ document.addEventListener('keydown', (event) => {
 document.addEventListener('keyup', () => {
     clearInterval(interval);
     speed = 0;
-    console.log("released")
-
+    backgroundAnimationHold();
 });
 
 
@@ -134,18 +131,58 @@ function updateMetricsTable() {
 
 }
 
-function updateSpeed() {
-    CURRENT_SPEED = CURRENT_SPEED + 3;
-    currentSpeedElement.innerHTML = CURRENT_SPEED / 3;
-}
 
 let speedSetter = 0;
 
-function speedInput(val) {
-    speedSetter = val;
-    CURRENT_SPEED = 0;
-    for (let i = 0; i < val; i++) {
-        CURRENT_SPEED = CURRENT_SPEED + 3;
+function speedInput(ele) {
+    let val = ele.value;
+    if (val.length > 2 || val.length < 1) {
+        speedSetter = 1;
+        ele.value = ele.value.slice(0, ele.maxLength);
+    } else {
+        speedSetter = val;
+        CURRENT_SPEED = 0;
+        for (let i = 0; i < val; i++) {
+            CURRENT_SPEED = CURRENT_SPEED + 3;
+        }
     }
-    currentSpeedElement.innerHTML = CURRENT_SPEED / 3;
+}
+
+
+let layer1 = document.getElementById("layer1");
+let layer2 = document.getElementById("layer2");
+let layer3 = document.getElementById("layer3");
+
+function backgroundAnimationLeft() {
+    layer1.style.animation = "sf-fly-by-1-left 5s linear infinite";
+    layer2.style.animation = "sf-fly-by-2-left 5s linear infinite";
+    layer3.style.animation = "sf-fly-by-3-left 5s linear infinite";
+
+    // layer1.style.animationDirection = "forward";
+    // layer2.style.animationDirection = "reverse";
+    // layer3.style.animationDirection = "reverse";
+}
+
+function backgroundAnimationRight() {
+
+    layer1.style.animation = "sf-fly-by-1-left 5s linear reverse infinite";
+    layer2.style.animation = "sf-fly-by-2-left 5s linear reverse infinite";
+    layer3.style.animation = "sf-fly-by-3-left 5s linear reverse infinite";
+
+}
+
+function backgroundAnimationHold() {
+    layer1.style.animation = "sf-fly-by-1 5s linear infinite";
+    layer2.style.animation = "sf-fly-by-2 5s linear infinite";
+    layer3.style.animation = "sf-fly-by-3 5s linear infinite";
+
+    // layer1.style.animationPlayState = "paused";
+    layer2.style.animationPlayState = "paused";
+    layer3.style.animationPlayState = "paused";
+
+    layer1.style.animationDuration = "10s";
+    layer2.style.animationDuration = "10s";
+    layer3.style.animationDuration = "10s"
+
+
 }

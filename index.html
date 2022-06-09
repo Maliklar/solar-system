@@ -17,9 +17,9 @@
     <div class="bg"></div>
 
     <div class="star-field">
-        <div class="layer"></div>
-        <div class="layer"></div>
-        <div class="layer"></div>
+        <div class="layer" id="layer1"></div>
+        <div class="layer" id="layer2"></div>
+        <div class="layer" id="layer3"></div>
     </div>
 
     <img src="./assets/ship.png" class="player" />
@@ -60,53 +60,53 @@
 
                 </tr>
                 <tr>
-                    <td>Venus: </td>
+                    <td>Venus </td>
                     <td id="venus-time"></td>
                     <td id="venus-dist"></td>
                 </tr>
                 <tr>
-                    <td>Earth: </td>
+                    <td>Earth </td>
                     <td id="earth-time"></td>
                     <td id="earth-dist"></td>
                 </tr>
                 <tr>
-                    <td>Mars: </td>
+                    <td>Mars </td>
                     <td id="mars-time"></td>
                     <td id="mars-dist"></td>
                 </tr>
                 <tr>
-                    <td>Jupiter: </td>
+                    <td>Jupiter </td>
                     <td id="jupiter-time"></td>
                     <td id="jupiter-dist"></td>
                 </tr>
                 <tr>
-                    <td>Saturn: </td>
+                    <td>Saturn </td>
                     <td id="saturn-time"></td>
                     <td id="saturn-dist"></td>
                 </tr>
                 <tr>
-                    <td>Uranus: </td>
+                    <td>Uranus </td>
                     <td id="uranus-time"></td>
                     <td id="uranus-dist"></td>
                 </tr>
 
                 <tr>
-                    <td>Neptune: </td>
+                    <td>Neptune </td>
                     <td id="neptune-time"></td>
                     <td id="neptune-dist"></td>
                 </tr>
                 <tr>
-                    <td>Pluto: </td>
+                    <td>Pluto </td>
                     <td></td>
                     <td></td>
                 </tr>
 
             </tbody>
         </table>
-        <span> <span id="current-speed">1</span> - LightSpeed</span>
-        <input type="number" oninput="speedInput(this.value)" min="1" max="100" value="1" placeholder="Speed (1 = 1 light speed)" />
-        <div class="distance" id="distance"></div>
-        <div class="distance-tonext" id="distance-tonext"></div>
+        <hr>
+        <span>Max Speed</span>
+        <input type="number" oninput="speedInput(this)" min="1" max="99" maxlength="2" value="1" placeholder="Speed" />
+        <span>x Light Speed</span>
     </div>
 
 
