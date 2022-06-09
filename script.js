@@ -211,3 +211,33 @@ function backgroundAnimationHold() {
 
 
 }
+
+
+plaentsSize();
+
+// temp option
+function plaentsSize() {
+    earth.style.height = "500px";
+    earth.style.width = "500px";
+    earth.style.top = "50px";
+
+    mercury.style.height = "500px";
+    mercury.style.width = "500px";
+    mercury.style.top = "50px";
+
+    venus.style.height = "500px";
+    venus.style.width = "500px";
+    venus.style.top = "50px";
+
+    mars.style.height = "500px";
+    mars.style.width = "500px";
+    mars.style.top = "50px";
+
+    uranus.style.height = "500px";
+    uranus.style.width = "500px";
+    uranus.style.top = "50px";
+
+    neptune.style.height = "500px";
+    neptune.style.width = "500px";
+    neptune.style.top = "50px";
+}
