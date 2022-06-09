@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./background.css">
+    <title>Space Travel</title>
+</head>
+
+<body>
+
+
+
+    <div class="bg"></div>
+
+    <div class="star-field">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+    </div>
+
+    <img src="./assets/ship.png" class="player" />
+
+    <div class="sun"></div>
+    <div class="mercury"></div>
+    <div class="venus"></div>
+    <div class="earth"></div>
+    <div class="mars"></div>
+    <div class="jupiter"></div>
+    <div class="saturn">
+        <img src="./assets/textures/rings.png" class="rings" />
+    </div>
+    <div class="neptune"></div>
+    <div class="uranus"></div>
+    <div class="pluto"></div>
+
+    <div class="metrics">
+        <table>
+            <thead>
+                <tr>
+                    <th>Planet</th>
+                    <th>Time (m)</th>
+                    <th>Distance (km)</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sun</td>
+                    <td id="sun-time"></td>
+                    <td id="sun-dist"></td>
+                </tr>
+                <tr>
+                    <td>Mercury</td>
+                    <td id="mercury-time"></td>
+                    <td id="mercury-dist"></td>
+
+                </tr>
+                <tr>
+                    <td>Venus: </td>
+                    <td id="venus-time"></td>
+                    <td id="venus-dist"></td>
+                </tr>
+                <tr>
+                    <td>Earth: </td>
+                    <td id="earth-time"></td>
+                    <td id="earth-dist"></td>
+                </tr>
+                <tr>
+                    <td>Mars: </td>
+                    <td id="mars-time"></td>
+                    <td id="mars-dist"></td>
+                </tr>
+                <tr>
+                    <td>Jupiter: </td>
+                    <td id="jupiter-time"></td>
+                    <td id="jupiter-dist"></td>
+                </tr>
+                <tr>
+                    <td>Saturn: </td>
+                    <td id="saturn-time"></td>
+                    <td id="saturn-dist"></td>
+                </tr>
+                <tr>
+                    <td>Uranus: </td>
+                    <td id="uranus-time"></td>
+                    <td id="uranus-dist"></td>
+                </tr>
+
+                <tr>
+                    <td>Neptune: </td>
+                    <td id="neptune-time"></td>
+                    <td id="neptune-dist"></td>
+                </tr>
+                <tr>
+                    <td>Pluto: </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <span> <span id="current-speed">1</span> - LightSpeed</span>
+        <input type="number" oninput="speedInput(this.value)" min="1" max="100" value="1" placeholder="Speed (1 = 1 light speed)" />
+        <div class="distance" id="distance"></div>
+        <div class="distance-tonext" id="distance-tonext"></div>
+    </div>
+
+
+    <div class="bottom-map">
+        <div class="bottom-map-progress">
+
+        </div>
+        <div class="sun-map">|</div>
+        <div class="mercury-map">|</div>
+        <div class="venus-map">|</div>
+        <div class="earth-map">|</div>
+        <div class="mars-map">|</div>
+        <div class="jupiter-map">|</div>
+        <div class="saturn-map">|</div>
+        <div class="neptune-map">|</div>
+        <div class="uranus-map">|</div>
+        <div class="pluto-map">|</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
