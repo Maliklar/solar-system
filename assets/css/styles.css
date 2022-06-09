@@ -1,5 +1,37 @@
+body {
+    /* real distance / 1000 */
+    padding: 0px;
+    margin: 0px;
+    width: 6000000px;
+    position: relative;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+button,
+input {
+    padding: 10px;
+    border-radius: 10px;
+    background: none;
+    color: white;
+    margin: 3px;
+    font-weight: 900;
+    box-shadow: 0px 0px 0px white;
+    border: solid 1px white;
+}
+
+button:hover {
+    box-shadow: 1px 1px 5px white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+
+/* Background Details */
+
 .bg {
-    background: url(/assets/background.jpg) no-repeat;
+    background: url("../images/background.jpg") no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
