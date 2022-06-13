@@ -19,6 +19,6 @@ Or [Try it here](https://htmlpreview.github.io/?https://github.com/Maliklar/sola
 <br>
 <img src= "./screenshots/venus.png" alt="Venus Screen Shot">
 <br>
-<img src= "./screenshots/jupiter.png" alt="Jupiter Screen Shot">
+<img src= "./screenshots/Jupiter.png" alt="Jupiter Screen Shot">
 
 <br>
