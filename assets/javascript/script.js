@@ -177,10 +177,11 @@ function backgroundAnimationHold() {
 }
 
 
-plaentsSize();
+planetsSize();
 
-// temp option
-function plaentsSize() {
+// This function will make planets appear on the screen.
+// Because of scaling the some planets will be displayed in 2 pixels which make it very useless
+function planetsSize() {
     earth.style.height = "500px";
     earth.style.width = "500px";
     earth.style.top = "50px";
@@ -204,4 +205,77 @@ function plaentsSize() {
     neptune.style.height = "500px";
     neptune.style.width = "500px";
     neptune.style.top = "50px";
+}
+
+
+function moveLeft(target) {
+    engineAudio.play();
+    engineFire.style.visibility = "visible";
+    playerContainer.style.animation = "movementLeft 10s alternate-reverse infinite";
+    interval = setInterval(() => {
+        currentPosition = window.pageXOffset;
+        window.scroll(currentPosition - speed, 0);
+        updateMetricsTable();
+        backgroundAnimationLeft();
+
+        let dest = Math.abs(currentPosition - target);
+        if (dest < 500) {
+            stopShip()
+        }
+    }, 1);
+}
+
+
+function moveRight(target) {
+    engineAudio.play();
+    interval = setInterval(() => {
+        engineFire.style.visibility = "visible";
+        playerContainer.style.animation = "movement 10s alternate-reverse infinite";
+
+
+        currentPosition = window.pageXOffset;
+        window.scroll(currentPosition + speed, 0);
+        updateMetricsTable();
+        backgroundAnimationRight();
+
+        let dest = Math.abs(currentPosition - target);
+        if (dest < 500) {
+            stopShip()
+        }
+    }, 1);
+}
+
+
+function stopShip() {
+    speed = 0;
+    clearInterval(interval);
+    engineAudio.pause();
+    backgroundAnimationHold();
+    engineFire.style.visibility = "hidden";
+    updateMetricsTable();
+    console.log("here")
+}
+
+let destination = document.querySelector(".earth");
+let destinationDist = document.getElementById("earth-dist");
+let destinationTime = document.getElementById("earth-time");
+
+function toggleDestination(input) {
+    destination = document.querySelector(`.${input.value}`);
+    destinationDist = document.getElementById(`${input.value}-dist`);
+    destinationTime = document.getElementById(`${input.value}-time`);
+}
+
+function autoPilot() {
+    let target = destination.offsetLeft;
+    clearInterval(interval);
+    speed = CURRENT_SPEED;
+
+
+    console.log(currentPosition, target);
+    if (target > currentPosition) {
+        moveRight(target);
+    } else {
+        moveLeft(target);
+    }
 }
